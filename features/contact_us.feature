@@ -7,3 +7,10 @@ Feature: Contact us form
     When user fills in the form with valid email, message and subject
     And clicks submit button
     Then contact form is sent and user sees success alert
+
+  Scenario: sending a contact form with files attached
+    Given user visits automationpractice.com Contact Us site
+    When user fills in the form with valid email, message and subject
+    And attach a file
+    And clicks submit button
+    Then contact form is sent and user sees success alert

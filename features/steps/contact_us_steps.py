@@ -2,6 +2,9 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from os import getcwd
+
+img1 = getcwd() + "/features/img/img1.jpg"
 
 
 @given('user visits automationpractice.com Contact Us site')
@@ -24,6 +27,12 @@ def fill_form_correctly(context):
 @when('clicks submit button')
 def click_submit_button(context):
     context.driver.find_element(By.ID, "submitMessage").click()
+
+
+@when('attach a file')
+def attach_file(context):
+    file_input = context.driver.find_element(By.ID, "fileUpload")
+    file_input.send_keys(img1)
 
 
 @then('contact form is sent and user sees success alert')
